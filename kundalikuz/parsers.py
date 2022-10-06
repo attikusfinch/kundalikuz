@@ -1,5 +1,5 @@
-from dnevnikru import settings
-from dnevnikru.exceptions import DnevnikError
+from kundalikuz import settings
+from kundalikuz.exceptions import DnevnikError
 
 from bs4 import BeautifulSoup
 from typing import Optional, Union
@@ -53,7 +53,7 @@ class Parser:
                 break
         soup = BeautifulSoup(data_response, 'lxml')
         user_id = soup.find('option')["value"]
-        link = "https://dnevnik.ru/currentprogress/result/{}/{}/{}/{}?UserComeFromSelector=True".format(
+        link = "https://kundalik.com/currentprogress/result/{}/{}/{}/{}?UserComeFromSelector=True".format(
             user_id, school, settings.STUDYYEAR, week)
         week_response = session.get(link).text
         return week_response

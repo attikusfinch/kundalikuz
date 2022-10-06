@@ -1,25 +1,25 @@
-from dnevnikru.exceptions import DnevnikError
-from dnevnikru.parsers import Parser
-from dnevnikru import settings
+from kundalikuz.exceptions import KundalikError
+from kundalikuz.parsers import Parser
+from kundalikuz import settings
 
 from datetime import timedelta, datetime
 from typing import Union
 import requests
 
 
-class Dnevnik:
+class Kundalik:
     """Базовый класс Дневника"""
 
     def __init__(self, login: str, password: str) -> None:
         self.__login, self.__password = login, password
         self._main_session = requests.Session()
         self._main_session.headers.update(settings.USER_AGENT)
-        self._main_session.post('https://login.dnevnik.ru/login',
+        self._main_session.post('https://login.kundalik.com/login',
                                 data={"login": self.__login, "password": self.__password})
         if self._main_session.cookies.get("t0"):
             self._school = self._main_session.cookies.get("t0")
             return
-        raise DnevnikError('Authorization error', 'LoginError')
+        raise KundalikError('Authorization error', 'LoginError')
 
     def homework(self, datefrom=settings.DATEFROM, dateto=settings.DATETO, studyyear=settings.STUDYYEAR,
                  days: int = 10) -> dict:
@@ -29,7 +29,7 @@ class Dnevnik:
             days_count = datetime.strptime(datefrom, '%d.%m.%Y')
             dateto = (days_count + timedelta(days=days)).strftime("%d.%m.%Y")
         if len(datefrom) != 10 or len(dateto) != 10:
-            raise DnevnikError("Invalid dateto or datefrom", "Arguments error")
+            raise KundalikError("Invalid dateto or datefrom", "Arguments error")
 
         # Get homework
         link = settings.HW_LINK.format(self._school, studyyear, datefrom, dateto)
