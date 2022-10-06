@@ -1,10 +1,10 @@
 [![PyPI](https://img.shields.io/pypi/v/dnevnikru)](https://pypi.org/project/dnevnikru/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/dnevnikru)](https://pypi.org/project/dnevnikru)
-# dnevnikru
+# Kundalik UZ
 
-> Module for working with the site dnevnik.ru with python
+> Module for working with the site kundalik.com with python
 
-Dnevnik object accepts login and password from the dnevnik.ru account <br/>
+Kundalik object accepts login and password from the kundalik.com account <br/>
 Methods: homework, marks, searchpeople, birthdays, week <br>
 ##### Read the full functionality of the module here: [Wiki][wiki] <br>
 (Doesn't work in regions where you can enter the Diary only through GosUslugi !)
@@ -14,15 +14,15 @@ Windows:
 
 Run the command in the terminal: <br>
 ```cmd
-pip install dnevnikru
+pip install kundalik
 ```
 
 ## Examples of use
 
 ```python
-from dnevnikru import Dnevnik
+from kundalikuz import Kundalik
 
-dairy = Dnevnik(login='Your login', password='Your password')
+dairy = Kundalik(login='Your login', password='Your password')
 
 homework = dairy.homework(studyyear=2020, datefrom='01.12.2020', dateto='30.12.2020')
 marks = dairy.marks(index=0, period=1)
@@ -44,6 +44,7 @@ The module requires `requests`, `lxml`, `bs4` libraries
 ## Contact
 
 Aleksandr – tg: [@paracosm17](https://t.me/paracosm17) – email: paracosm17@aol.com <br>
+Finch - tg: [@attikus_finch_a](https://t.me/attikus_finch_a) - remake for kundalik
 
 ## LICENSE
 Distributed under the Apache License 2.0 license. See ``LICENSE`` for more information.
