@@ -1,5 +1,5 @@
 from kundalikuz import settings
-from kundalikuz.exceptions import DnevnikError
+from kundalikuz.exceptions import KundalikError
 
 from bs4 import BeautifulSoup
 from typing import Optional, Union
@@ -79,7 +79,7 @@ class Parser:
                     subjects.append(tuple(subject))
                 return {"homeworkCount": len(subjects), "homework": tuple(subjects)}
             except Exception as e:
-                raise DnevnikError(e, "DnevnikError")
+                raise KundalikError(e, "KundalikError")
 
     @staticmethod
     def get_marks(marks_response: str) -> tuple:
@@ -90,7 +90,7 @@ class Parser:
                 mark[2] = mark[2].replace(" ", "")
             return tuple(marks)
         except Exception as e:
-            raise DnevnikError(e, "DnevnikError")
+            raise KundalikError(e, "KundalikError")
 
     @staticmethod
     def search_people(self, last_page: Union[int, str], link: str, searchpeople_response: str) -> dict:
@@ -111,7 +111,7 @@ class Parser:
                     members.append(tuple(member))
                 return {"peopleCount": len(members), "people": tuple(members)}
             except Exception as e:
-                raise DnevnikError(e, "DnevnikError")
+                raise KundalikError(e, "KundalikError")
 
     @staticmethod
     def get_birthdays(self, birthdays_response: str, link: str) -> dict:
@@ -134,7 +134,7 @@ class Parser:
                     birthdays.append(i[1].split('\n')[1])
                 return {"birthdaysCount": len(birthdays), "birthdays": tuple(birthdays)}
             except Exception as e:
-                raise DnevnikError(e, "DnevnikError")
+                raise KundalikError(e, "KundalikError")
 
     @staticmethod
     def get_week(self, info: str, weeks: int) -> dict:

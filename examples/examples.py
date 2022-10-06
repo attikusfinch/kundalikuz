@@ -3,8 +3,8 @@
 from kundalikuz import Kundalik
 from pprint import pprint
 
-login = "Your login"
-password = "Your password"
+login = "login"
+password = "password"
 dairy = Kundalik(login=login,
                 password=password)
 
