@@ -5,14 +5,13 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(
-    name='dnevnikru',
+    name='kundalikuz',
     version='1.3.3',
-    packages=['dnevnikru'],
-    url='https://github.com/paracosm17/dnevnikru',
+    packages=['kundalikuz'],
+    url='https://github.com/attikusfinch/kundalikuz',
     license='Apache License 2.0',
-    author='paracosm17',
-    author_email='paracosm17@yandex.ru',
-    description='dnevnik.ru parser',
+    author='attikus_finch',
+    description='kundalik.com parser',
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[
