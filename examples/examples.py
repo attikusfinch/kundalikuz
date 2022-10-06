@@ -1,17 +1,10 @@
 # Больше примеров есть на странице Wiki - https://github.com/paracosm17/dnevnikru/wiki
 
 from kundalikuz import Kundalik
-from pprint import pprint
 
 login = "login"
 password = "password"
 dairy = Kundalik(login=login,
                 password=password)
 
-pprint(dairy.week(info="themes"), sort_dicts=False)  # Вывести список пройденных тем за текущую неделю
-
-total = 0  # Счётчик пропусков
-for subject in dairy.marks():  # Проходимся циклом по всем предметам в журнале оценок
-    total += int(subject[4])   # Суммируем количество пропусков с каждого предмета
-
-print(total)
+print(dairy.marks())
